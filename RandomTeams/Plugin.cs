@@ -19,6 +19,7 @@ namespace RandomTeams
             if (!PluginEnabled) return;
 
             EventHandler = new EventHandlers(this);
+            Events.RemoteAdminCommandEvent += EventHandler.OnRaCommand;
             Events.RoundStartEvent += EventHandler.OnRoundStart;
             Events.PlayerLeaveEvent += EventHandler.OnPlayerLeave;
             Events.PlayerDeathEvent += EventHandler.OnPlayerDeath;
@@ -39,6 +40,7 @@ namespace RandomTeams
             Events.PlayerDeathEvent -= EventHandler.OnPlayerDeath;
             Events.PlayerLeaveEvent -= EventHandler.OnPlayerLeave;
             Events.RoundStartEvent -= EventHandler.OnRoundStart;
+            Events.RemoteAdminCommandEvent -= EventHandler.OnRaCommand;
             EventHandler = null;
         }
 
